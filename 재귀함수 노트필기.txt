@@ -1,0 +1,32 @@
+재귀: 함수가 함수 스스로를 호출하는 것
+ex: def countdown(n):
+      if n > 0:
+          print(n)
+          countdown(n-1)
+>> countdown(4)
+>> 4 \ 3 \ 2 \ 1
+
+* 하위문제 파악하기: ex) 4!은 5!의 하위문제, 3!은 4!의 하위문제, 2!은 3!의 하위문제, 1!은 2!의 하위문제
+* 하위문제 중 바로 답을 알 수 있는 것: 베이스 케이스 (base case) ex: if n >1
+* 하위문제로 더 쪼개야 하는 것: 재귀케이스 (recursive case)  ex: if n == 1
+* <parameter로 받은 imput을 하나 줄이면 어떻게 될까?>
+def factorial(n):
+    if n ===1:
+        return 1   ->  base case
+    else:
+        return factorial(n-1)*n   -> recursive case
+
+ex: 리스트 뒤집기
+def reverse(my_list):
+  if len(my_list) =< 1:
+      #basecase
+      return my_list
+   #recursive case
+   # [1, 2, 3, 4, 5]
+   # [5] + [4,3,2,1]
+   my_list[-1:] + reverse(my_list[-1:])
+
+* 재귀문 vs 반복문
+  재귀문- 장점: 어떤 문제들은 재귀함수로 작성하는 게 더 깔끔하고 쉬움.
+                결국 반복문으로 구현하게 되더라도, 재귀적인 접근 방식으로 해결책을 찾을 수 있다.
+        - 단점: stackoverflow error (1000개까지 가능)
