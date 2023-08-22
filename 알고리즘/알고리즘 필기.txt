@@ -42,3 +42,49 @@
                         20logn+60 : O(logn)
     - 가정: n이 매우 크다(시간복잡도는 절대적인 시간이 아닌 성능성을 중시하기 때문)
 
+* 탐색 알고리즘 평가 예시(선형탐색)
+def linear_search(element, some_list)
+    i=0                 (O(1))
+    n=len(some_list)    (O(1))
+    while i<n:          최소 ((O(1)), 최대 O(n))
+        if some_list[i] == element:
+            return i
+        i += 1
+
+    return -1           (O(1))
+    => 알고리즘 시간복잡도:  최소 ((O(1)), **최대 O(n))**
+
+*예시 2: 이진탐색 - 최소 (O(1)), **최대 O(logn)**
+
+- 주의: 트리나 그래프처럼 선형적이지 않은 자료구조의 경우 시간 복잡도 n으로 표현되지 않기도(O(V+E))
+       인풋 크기와 상관없이 똑같은 시간에 실행되는 코드 실행되는 코드만 O(1)
+- 평균 케이스:
+lst my_list[index] = 1
+    my_list.sort()
+    sorted(my_list) = nlgn
+    my_list.reverse() = n
+    element in my_list = n
+    my_list.append(element) = 1
+    my_list.insert(index, element) = n
+    del my_list[index] = n
+    max/min(my_list) = n
+    len(my_list) = 1
+    my_list[a:b] = b-a
+dic my_dict[key] = 1
+    my_dict[key]=value = 1
+    dle my_dict[key] = 1
+
+
+대부분 O(1), O(lgn), O(n), O(nlgn), O(n^2), O(n^3), O(n^4), O(2^n), O(n!) 중 하나
+- O(1): 인풋의 크기가 소요시간에 영향 없음
+        (반복문이 없으면 대체로 O(1))
+- O(n): 반복문이 있고, 반복되는 횟수가 인풋의 크기와 비례하면 일반적으로 O(n)
+- O(n^2): 반복문 안 반복문, 두 반복문 다 인풋의 크기예 비례하는 경우
+- O(ㅣgn): ex) 변수가 n배(대개 2)씩 증가, 감소
+- O(nlgn): O(n)과 O(lgn) 중첩
+
+
+- TIP: 코드 없이 알고리즘을 평가
+
+* 공간복잡도: 시간복잡도와 마찬가지로 인풋 크기에 비례해서 알고리즘이 사용하는 메모리 공간
+            점근표기법 사용 가능
