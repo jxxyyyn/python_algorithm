@@ -1,0 +1,23 @@
+dynamic programming
+1. 최적 부분 구조(optimal substructure)
+    - 부분 문제들의 최적의 답을 이용해 기존 문제의 최적의 답 구하기
+
+2. 중복 부분 구조(overlapping subproblem)
+    - 문제를 부분 문제로 나눌 때 부분 문제의 계산이 반복하여 이루어짐
+    - 이걸 해결하기 위해 다이나믹 프로그래밍 사용
+    * 중복되지 않을 경우: non-overlapping subproblem
+
+dynamic programming: 한 번 계산한 결과를 재활용하는 방식
+구현 방법
+1. memoization: 중복되는 계산은 한 번만 계산 후 메모, 재귀 기반 ex: 피보나치 수열
+                중복되는 부분 문제에 대한 비효율성 해결
+    (하향식 접근, top-down approach)
+2. tabulation: 테이블(표) 방식으로 정리, 반복문 기반
+    (상향식 접근, bottom-up approach)
+
+=> memoization의 경우 재귀함수 부하에 의한 오류 발생할 수 있지만 tabulation은 그런 오류 발생 x
+   그러나 tabulation의 경우 중간에 필요없는 계산까지 하게 되는 문제점 있음.
+
+ex: 피보나치 수열 - tab- 시간/공간복잡도 모두 O(n)
+                  그러나 불필요한 정보도 저장하고 있으므로 리스트 대신 가장 최근 값 저장하는 변수 2개 사용하면 됨.
+                  이 경우 사용하는 메모리 고정되어 있으므로 공간복잡도 O(1) -  다이나믹 프로그래밍 시 모든 계산값을 저장할 필요 없다면 공간 사용 최적화하기
