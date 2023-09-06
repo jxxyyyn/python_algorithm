@@ -10,9 +10,8 @@ def max_profit_memo(price_list, count, cache):
     else:
         profit = 0
 
-    for i in range(1, count // 2, + 1):
-        profit = max(profit,
-                     max_profit_memo(price_list, count - 1, cache) + max_profit_memo(price_list, count - 2, cache))
+    for i in range(1, count // 2 + 1):
+        profit = max(profit, max_profit_memo(price_list, i, cache) + max_profit_memo(price_list, count - i, cache))
     cache[count] = profit
     return profit
 
