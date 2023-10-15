@@ -1,6 +1,6 @@
 def min_coin_count(value, coin_list):
     count = 0
-    for coin in sorted(coin_listm reverse=True):
+    for coin in sorted(coin_list, reverse=True):
         count += (value // coin)
         value %= coin
     return count
