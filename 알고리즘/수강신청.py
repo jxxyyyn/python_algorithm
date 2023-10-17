@@ -1,7 +1,7 @@
 def course_selection(course_list):
     sorted_list = sorted(course_list, key=lambda x: x[1])
     my_selection = [sorted_list[0]]
-    for course in course_list:
+    for course in sorted_list:
         if course[0] > my_selection[-1][1]:
             my_selection.append(course)
     return my_selection
